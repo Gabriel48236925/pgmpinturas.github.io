@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGM Pinturas - Portfólio de Serviços</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #f8fafc;
+            font-weight: 400;
+        }
+
+        .portfolio {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* HEADER CORPORATIVO */
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #ffffff;
+            padding: 50px 50px 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 100%);
+            transform: skewX(-15deg);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .company-name {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .company-tagline {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+            letter-spacing: 0.01em;
+        }
+
+        .company-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: 8px 0;
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .main-content {
+            padding: 60px 50px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #3b82f6;
+        }
+
+        /* PROJETOS REALIZADOS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .project-client {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .project-type {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-status {
+            background: #dcfce7;
+            color: #166534;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .project-description {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .spec-item {
+            font-size: 0.9rem;
+        }
+
+        .spec-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* ESPECIALIDADES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .service-items {
+            list-style: none;
+        }
+
+        .service-items li {
+            color: #475569;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .service-items li::before {
+            content: '•';
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* CREDENCIAIS */
+        .credentials {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .credentials h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .credential-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .credential-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #60a5fa;
+            display: block;
+        }
+
+        .credential-label {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        /* CALL TO ACTION */
+        .cta-section {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        /* RESPONSIVIDADE COMPLETA */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header, .main-content {
+                padding: 40px 25px;
+            }
+            
+            .company-name {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+            
+            .company-tagline {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .company-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .projects-grid, .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .project-specs {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header, .main-content {
+                padding: 30px 20px;
+            }
+            
+            .company-name {
+                font-size: 2.2rem;
+            }
+            
+            .company-tagline {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .project-card, .service-card {
+                padding: 20px;
+            }
+            
+            .credentials {
+                padding: 30px 20px;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .company-name {
+                font-size: 1.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .project-card, .service-card {
+                padding: 15px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .portfolio {
+                box-shadow: none;
+            }
+            
+            .project-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="company-name">PGM PINTURAS</h1>
+                <p class="company-tagline">Soluções Profissionais em Pintura Industrial, Comercial e Residencial</p>
+                
+                <div class="company-info">
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <span>Chapecó, Santa Catarina</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <span>(49) 99949-9415</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <span>pgmpinturasemgeral@hotmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🎯</span>
+                        <span>Atendimento Região Sul</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Projetos Executados</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-client">INDÚSTRIA AURORA</h3>
+                                <p class="project-type">Pintura Industrial</p>
+                            </div>
+                            <span class="project-status">✓ Concluído</span>
+                        </div>
+                        <p class="project-description">
+                            Execução de serviços de pintura industrial em quatro unidades operacionais, incluindo estruturas metálicas, equipamentos e instalações fabris com aplicação de tintas especiais para ambiente industrial.
+                        </p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Unidades Atendidas</div>
+                                <div class="spec-value">4 Instalações</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Tipo de Serviço</div>
+                                <div class="spec-value">Pintura Especializada</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Segmento</div>
+                                <div class="spec-value">Industrial</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Status</div>
+                                <div class="spec-value">Relacionamento Ativo</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-client">CASAS E COMPLEXOS RESIDENCIAIS</h3>
+                                <p class="project-type">Pintura Predial e Residencial</p>
+                            </div>
+                            <span class="project-status">✓ Concluído</span>
+                        </div>
+                        <p class="project-description">
+                            Pintura completa de residências unifamiliares e edificações residenciais incluindo casas, fachadas, áreas comuns, apartamentos e infraestrutura predial com aplicação de materiais de alta durabilidade.
+                        </p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Imóveis Atendidos</div>
+                                <div class="spec-value">Casas & Prédios</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Especialidade</div>
+                                <div class="spec-value">Fachadas & Interiores</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Complexidade</div>
+                                <div class="spec-value">Grande Porte</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Resultado</div>
+                                <div class="spec-value">Excelência Técnica</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-client">ESPAÇOS COMERCIAIS</h3>
+                                <p class="project-type">Pintura Corporativa</p>
+                            </div>
+                            <span class="project-status">✓ Concluído</span>
+                        </div>
+                        <p class="project-description">
+                            Execução de projetos de pintura em ambientes corporativos, salas comerciais e escritórios com foco em acabamentos profissionais e prazos otimizados.
+                        </p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Ambientes</div>
+                                <div class="spec-value">Salas & Escritórios</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Foco</div>
+                                <div class="spec-value">Ambiente Corporativo</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Diferencial</div>
+                                <div class="spec-value">Mínima Interrupção</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Qualidade</div>
+                                <div class="spec-value">Padrão Premium</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-client">APLICAÇÃO EPÓXI</h3>
+                                <p class="project-type">Revestimentos Especiais</p>
+                            </div>
+                            <span class="project-status">✓ Concluído</span>
+                        </div>
+                        <p class="project-description">
+                            Aplicação especializada de revestimentos epóxi em pisos industriais e comerciais, proporcionando alta resistência, durabilidade e facilidade de manutenção.
+                        </p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Aplicação</div>
+                                <div class="spec-value">Pisos Epóxi</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Características</div>
+                                <div class="spec-value">Alta Resistência</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Durabilidade</div>
+                                <div class="spec-value">Longo Prazo</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Manutenção</div>
+                                <div class="spec-value">Simplificada</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Especialidades Técnicas</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 class="service-title">Pintura Industrial</h3>
+                        <ul class="service-items">
+                            <li>Estruturas metálicas e equipamentos</li>
+                            <li>Revestimentos anticorrosivos</li>
+                            <li>Tintas especiais para ambientes industriais</li>
+                            <li>Normas técnicas e segurança</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3 class="service-title">Pintura Predial</h3>
+                        <ul class="service-items">
+                            <li>Fachadas e empenas</li>
+                            <li>Trabalhos em altura certificados</li>
+                            <li>Impermeabilização integrada</li>
+                            <li>Coordenação de equipes especializadas</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3 class="service-title">Pintura Residencial e Comercial</h3>
+                        <ul class="service-items">
+                            <li>Casas e residências completas</li>
+                            <li>Salas comerciais e escritórios</li>
+                            <li>Ambientes internos e externos</li>
+                            <li>Acabamentos personalizados</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3 class="service-title">Pisos Epóxi</h3>
+                        <ul class="service-items">
+                            <li>Aplicação profissional de epóxi</li>
+                            <li>Preparação adequada do substrato</li>
+                            <li>Alta resistência e durabilidade</li>
+                            <li>Acabamento liso e de fácil limpeza</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="credentials">
+                <h3>Credenciais da Empresa</h3>
+                <div class="credentials-grid">
+                    <div class="credential-item">
+                        <span class="credential-number">4</span>
+                        <div class="credential-label">Unidades Aurora Atendidas</div>
+                    </div>
+                    <div class="credential-item">
+                        <span class="credential-number">100%</span>
+                        <div class="credential-label">Projetos Entregues no Prazo</div>
+                    </div>
+                    <div class="credential-item">
+                        <span class="credential-number">15+</span>
+                        <div class="credential-label">Anos de Experiência (desde 2009)</div>
+                    </div>
+                    <div class="credential-item">
+                        <span class="credential-number">ISO</span>
+                        <div class="credential-label">Padrão de Qualidade</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3 class="cta-title">Solicite uma Proposta Comercial</h3>
+                <p class="cta-description">
+                    Experiência comprovada em projetos industriais e comerciais de grande porte. 
+                    Orçamentos detalhados e execução com padrão de excelência.
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <span>📱</span>
+                        <span>(49) 99949-9415</span>
+                    </div>
+                    <div class="contact-method">
+                        <span>✉️</span>
+                        <span>pgmpinturasemgeral@hotmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
